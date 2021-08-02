@@ -9,21 +9,31 @@
     <title>Document</title>
 </head>
 <body>
+
+<header>
+    <h1 class="header">Weather Dashboard</h1>
+</header>
     
 <div class="container">
 
-    <div class="search">
-        <h1>Search for a city:</h1>
-        <form>
-            <input type="text" id="search-bar" name="search-bar" placeholder="Sacramento"/>
-            <button type="submit" class="search-button">Search</button>
-        </form>
+    <div class="search-column">
+
+        <div class="search">
+            <h1 class="search-header">Search for a city:</h1>
+            <form>
+                <input type="text" id="search-bar" name="search-bar" placeholder="Sacramento"/> <br>
+                <button type="submit" class="search-button">Search</button>
+            </form>
+        </div>
+
+        <div class="saved-search">text</div>
+
     </div>
 
     <div class="weather-conditions">
 
         <div class="current-conditions hidden">
-            <h1><span class="city-name"></span> (<span class="current-day"></span>)</h1>
+            <h1 class="city-header"><span class="city-name"></span> (<span class="current-day"></span>)</h1>
             <p>Temp: <span class="temp"></span>&#8457</p>
             <p>Wind: <span class="wind"></span> MPH</p>
             <p>Humidity: <span class="humidity"></span>%</p>

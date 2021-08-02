@@ -2,35 +2,89 @@
     display: none;
 }
 
+body {
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #502170, #EF76AC);
+    color: white;
+    height: 70px;
+}
+
+.header {
+    margin: 0;
+}
+
 .container {
     margin-right: 0;
     display: flex;
     flex-direction: row;
 }
 
-.search {
+.search-column {
     width: 30%;
+    margin: 0 10px;
 }
 
-.weather-conditions {
+.search-header {
+    margin: 10px 0;
+}
+
+#search-bar, .search-button, .weather-conditions {
     width: -webkit-fill-available;
 }
 
+#search-bar {
+    padding: 10px 5px;
+}
+
+.search-button {
+    margin: 20px 0;
+    padding: 5px;
+    background-color: #EF76AC;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: medium;
+}
+
+.saved-search {
+    border-top: solid black 2px;
+}
+
+.weather-conditions {
+    padding-left: 10px;
+}
+
 .current-conditions {
-    margin-bottom: 20px;
+    margin: 10px 10px 20px 0;
+    border: solid black 1px;
+    padding: 10px 0 0 10px;
+}
+
+.city-header {
+    margin: 0 0 10px 0;
 }
 
 .future-row {
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .future-cards {
-    background-color: #924DA3;
+    background: linear-gradient(
+        rgba(146,77,163, 1),
+        rgba(146,77,163, 0.8));
     color: white;
     width: 40%;
     padding: 20px;
     margin-right: 2%;
+    border-radius: 5px;
 }
 
 .future-day {

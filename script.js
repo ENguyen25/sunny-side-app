@@ -47,7 +47,24 @@ function submitCity(coordinates) {
             futureConditions = weatherArr.daily;
             displayCurrentConditions();
             displayFutureConditions();
+            uvIndex();
         });
+}
+
+function uvIndex() {
+    if (currentConditions.uvi <= 2) {
+        currentUVI.classList.add("favorable");
+        currentUVI.classList.remove("severe");
+        currentUVI.classList.remove("moderate");
+    } else if (currentConditions.uvi >= 8) {
+        currentUVI.classList.add("severe");        
+        currentUVI.classList.remove("favorable");        
+        currentUVI.classList.remove("moderate");        
+    } else if (currentConditions.uvi < 8 && currentConditions.uvi > 2) {
+        currentUVI.classList.add("moderate");        
+        currentUVI.classList.remove("favorable");        
+        currentUVI.classList.remove("severe");        
+    }
 }
 
 function displayCurrentConditions() {
@@ -62,6 +79,7 @@ function displayCurrentConditions() {
 
 function displayFutureConditions() {
     futureCond.classList.remove("hidden");
+    $(".future-row").text("").appendTo(".weather-conditions")
     for (var i = 0; i < 5; i++) {
         var futureDay = moment().add(i + 1, 'days');
         $("<div>").attr(
@@ -69,7 +87,7 @@ function displayFutureConditions() {
                 id: `card-${[i]}`,
                 class: "future-cards"
             }
-        ).appendTo(".future-conditions");
+        ).appendTo(".future-row");
         $("<h3>").addClass("future-day").text(futureDay.format("l")).appendTo(`#card-${[i]}`);
         $("<p>").addClass("future-temp").text(`Temp: ${futureConditions[i].temp.day}℉`).appendTo(`#card-${[i]}`);
         $("<p>").addClass("future-wind").text(`Wind: ${futureConditions[i].wind_speed} MPH`).appendTo(`#card-${[i]}`);

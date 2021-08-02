@@ -1,3 +1,56 @@
 .hidden {
     display: none;
 }
+
+.container {
+    margin-right: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.search {
+    width: 30%;
+}
+
+.weather-conditions {
+    width: -webkit-fill-available;
+}
+
+.current-conditions {
+    margin-bottom: 20px;
+}
+
+.future-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.future-cards {
+    background-color: #924DA3;
+    color: white;
+    width: 40%;
+    padding: 20px;
+    margin-right: 2%;
+}
+
+.future-day {
+    margin: 0;
+}
+
+.uv-index {
+    color: white;
+    padding: 3px 20px;
+    border-radius: 5px;
+}
+
+.favorable {
+    background-color: green;
+}
+
+.moderate {
+    background-color: #ebcf34;
+}
+
+.severe {
+    background-color: red;
+}

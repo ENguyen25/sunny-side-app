@@ -1,6 +1,7 @@
 var apiKey = "9484421180d6e59390060d61c96e0844";
 var searchInput = document.querySelector("#search-bar");
 var searchButton = document.querySelector(".search-button");
+var savedSearch = document.querySelector(".saved-search");
 var city = document.querySelector(".city-name");
 var currentCond = document.querySelector(".current-conditions");
 var futureCond = document.querySelector(".future-conditions")
@@ -13,6 +14,10 @@ var weatherArr = [];
 var currentConditions = [];
 var futureConditions = [];
 var currentDay = moment();
+var citySearch = "";
+var lat = "";
+var lon = "";
+var searchList = [];
 
 
 searchButton.addEventListener("click", function(event) {
@@ -31,13 +36,15 @@ function findCity(city) {
             return coordinates;
         }).then(coordinates => {
             submitCity(coordinates);
+            createNewButton(searchList);
         })
         .catch(err => console.log(err))
 }
 
 function submitCity(coordinates) {
-    var lat = coordinates.lat;
-    var lon = coordinates.lon;
+    lat = coordinates.lat;
+    lon = coordinates.lon;
+    saveCoordinates(lat, lon);
 
     fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`)
         .then(response => response.json())
@@ -80,6 +87,7 @@ function displayCurrentConditions() {
 function displayFutureConditions() {
     futureCond.classList.remove("hidden");
     $(".future-row").text("").appendTo(".weather-conditions")
+
     for (var i = 0; i < 5; i++) {
         var futureDay = moment().add(i + 1, 'days');
         $("<div>").attr(
@@ -92,5 +100,41 @@ function displayFutureConditions() {
         $("<p>").addClass("future-temp").text(`Temp: ${futureConditions[i].temp.day}℉`).appendTo(`#card-${[i]}`);
         $("<p>").addClass("future-wind").text(`Wind: ${futureConditions[i].wind_speed} MPH`).appendTo(`#card-${[i]}`);
         $("<p>").addClass("future-humidity").text(`Humidity: ${futureConditions[i].humidity}%`).appendTo(`#card-${[i]}`);
+    }
+}
+
+function saveCoordinates(lat, lon) {
+    var newCity = {
+        city: cityName,
+        latitude: lat, 
+        longitude: lon
+    }
+    searchList.push(newCity);
+    console.log(searchList);
+    localStorage.setItem('search', JSON.stringify(searchList));
+}
+
+savedSearch.addEventListener('click', function(event) {
+    var onClick = event.target;
+
+    if (onClick.matches("button")) {
+        submitCity
+        taskList.push(newTask);
+        console.log(taskList);
+        localStorage.setItem('tasks', JSON.stringify(taskList));
+    } else {
+        return;
+    }
+});
+
+localStorage.getItem("search") ? searchList = JSON.parse(localStorage.getItem("search")) : null;
+createNewButton(searchList);
+
+function createNewButton(list) {
+    $(".saved-search").empty();
+
+    for (var i = 0; i < list.length; i++) {
+        var newButton = $("<button>").attr("id", list[i].city).addClass("search-history").text(list[i].city)
+        $(".saved-search").append(newButton);
     }
 }

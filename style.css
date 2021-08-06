@@ -34,7 +34,7 @@ header {
     margin: 10px 0;
 }
 
-#search-bar, .search-button, .weather-conditions {
+#search-bar, button, .weather-conditions {
     width: -webkit-fill-available;
 }
 
@@ -42,18 +42,27 @@ header {
     padding: 10px 5px;
 }
 
-.search-button {
-    margin: 20px 0;
+button {
     padding: 5px;
-    background-color: #EF76AC;
     color: white;
     border: none;
     border-radius: 5px;
     font-size: medium;
 }
 
+.search-button {
+    background-color: #EF76AC;
+    margin: 20px 0;
+}
+
+.search-history {
+    background-color: #A14C8F;
+    margin: 10px 0;
+}
+
 .saved-search {
     border-top: solid black 2px;
+    padding-top: 10px;
 }
 
 .weather-conditions {

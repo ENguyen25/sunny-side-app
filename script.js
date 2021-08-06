@@ -44,10 +44,7 @@ function findCity(city) {
 function submitCity(coordinates) {
     lat = coordinates.lat;
     lon = coordinates.lon;
-
-    // if (coordinates.find(city) !== true) {
-    //     saveCoordinates(lat, lon);
-    // }
+    
     console.log(cityName);
 
     var findCityArr = searchList.filter(function(item) {
@@ -55,11 +52,7 @@ function submitCity(coordinates) {
     })
 
     console.log(findCityArr);
-    // if (findCityArr == true) {
-    //     saveCoordinates(lat, lon);
-    // } else {
-    //     null;
-    // }
+  
     if (findCityArr.length === 0) {
         saveCoordinates(lat, lon);
     } else {

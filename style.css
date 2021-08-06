@@ -50,6 +50,10 @@ button {
     font-size: medium;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 .search-button {
     background-color: #EF76AC;
     margin: 20px 0;

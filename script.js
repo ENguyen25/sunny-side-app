@@ -44,7 +44,27 @@ function findCity(city) {
 function submitCity(coordinates) {
     lat = coordinates.lat;
     lon = coordinates.lon;
-    saveCoordinates(lat, lon);
+
+    // if (coordinates.find(city) !== true) {
+    //     saveCoordinates(lat, lon);
+    // }
+    console.log(cityName);
+
+    var findCityArr = searchList.filter(function(item) {
+        return item.city == cityName;
+    })
+
+    console.log(findCityArr);
+    // if (findCityArr == true) {
+    //     saveCoordinates(lat, lon);
+    // } else {
+    //     null;
+    // }
+    if (findCityArr.length === 0) {
+        saveCoordinates(lat, lon);
+    } else {
+        null;
+    }
 
     fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`)
         .then(response => response.json())
@@ -106,8 +126,8 @@ function displayFutureConditions() {
 function saveCoordinates(lat, lon) {
     var newCity = {
         city: cityName,
-        latitude: lat, 
-        longitude: lon
+        lat: lat, 
+        lon: lon
     }
     searchList.push(newCity);
     console.log(searchList);
@@ -118,10 +138,19 @@ savedSearch.addEventListener('click', function(event) {
     var onClick = event.target;
 
     if (onClick.matches("button")) {
-        submitCity
-        taskList.push(newTask);
-        console.log(taskList);
-        localStorage.setItem('tasks', JSON.stringify(taskList));
+        var cityFilter = onClick.textContent
+        var findCityArr = searchList.filter(function(item) {
+            return item.city == cityFilter;
+        })
+        console.log(findCityArr);
+        var findCoordinates = {
+            city: cityFilter,
+            lat: findCityArr[0].lat,
+            lon: findCityArr[0].lon
+        }
+        console.log(findCoordinates);
+        cityName = cityFilter;
+        submitCity(findCoordinates);
     } else {
         return;
     }
@@ -138,3 +167,8 @@ function createNewButton(list) {
         $(".saved-search").append(newButton);
     }
 }
+
+const arr = [1, 2, 3, 4]
+console.log(arr.find(function(num) {
+  return num === 3
+}))

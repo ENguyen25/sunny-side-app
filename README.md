@@ -15,7 +15,7 @@ You can access the weather app at this website: https://enguyen25.github.io/sunn
 
 2. The city name will appear in your search history. Click the city name to see the weather conditions again.
 
-    ![Screenshot of quiz](./assets/weather.gif)
+    ![Screenshot of quiz](weather.gif)
 
 
 ## License

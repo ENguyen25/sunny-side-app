@@ -160,8 +160,3 @@ function createNewButton(list) {
         $(".saved-search").append(newButton);
     }
 }
-
-const arr = [1, 2, 3, 4]
-console.log(arr.find(function(num) {
-  return num === 3
-}))

@@ -1,13 +1,13 @@
 # Sunny Side App
 
 ## Description
-This coding quiz challenge tests developers on their knowledge of coding and programming languages. I made this coding quiz to apply my JavaScript skills in creating basic interactive web-user interfaces.
+This app allows users to access weather conditions five days in advance for any city in the United States. It features a user-friendly search interface, aesthetic design, and a search history.
 
-Through this project, I learned how to use JavaScript to make a responsive quiz that changes questions when you click an answer, saves your score, and matches your score with your initials. I also used jQuery to hide and show elements for a smooth user-interface.
+Through this project, I learned how to use JavaScript to fetch data from the OneWeather API, and to display weather conditions dynamically. I learned how to store data to local storage.
 
 
 ## Installation
-You can access the quiz at this website: https://enguyen25.github.io/sunny-side-app/.
+You can access the weather app at this website: https://enguyen25.github.io/sunny-side-app/.
 
 
 ## Usage
